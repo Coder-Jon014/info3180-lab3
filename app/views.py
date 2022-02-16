@@ -7,6 +7,9 @@ This file creates your application.
 
 from app import app
 from flask import render_template, request, redirect, url_for, flash
+from app.forms import ContactForm
+from app import mail
+from flask_mail import Message
 
 
 ###
@@ -18,6 +21,22 @@ def home():
     """Render website's home page."""
     return render_template('home.html')
 
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    """Render the contact page."""
+    contactForm = ContactForm()
+
+    if request.method == 'POST':
+        if contactForm.validate_on_submit():
+            msg = Message(contactForm.subject.data, sender=contactForm.email.data, recipients=['jon.coombs14@gmail.com'])
+            msg.body = contactForm.message.data
+            mail.send(msg)
+            flash('Thank you for your message!', 'success')
+            return redirect(url_for('home'))
+        flash_errors(contactForm)
+    return render_template('contact.html', form=contactForm)
+            
+        
 
 @app.route('/about/')
 def about():

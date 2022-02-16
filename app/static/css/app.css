@@ -1,3 +1,50 @@
 body {
     padding-top: 5rem;
+    font-family: 'Talis Sans', 'Talis ExtraBold' sans-serif;
+}
+.flash-message {
+    font-size: 30px;
+    color: #0d6efd;
+    padding: 10px;
+}
+
+.head{
+    border-bottom: 1px solid black;
+    
+}
+
+.head h1{
+    font-size: 35px;
+}
+.lead{
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 25px;
+}
+.form-label{
+    font-weight: bold;
+}
+.form-group{
+    padding-bottom: 10px;
+    padding-top: 15px;
+    font-weight: 600;
+}
+
+.form-control {
+    width: 300px;
+    border: 2px solid #ccc;
+}
+
+.form-control2{
+    width: 500px;
+    height: 150px;
+    border: 2px solid #ccc;
+}
+
+.btn-primary{
+    padding-left: 25px;
+    padding-right: 25px;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
