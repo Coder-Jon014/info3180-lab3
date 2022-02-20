@@ -33,7 +33,8 @@ def contact():
             mail.send(msg)
             flash('Thank you for your message!', 'success')
             return redirect(url_for('home'))
-        flash_errors(contactForm)
+        else:
+            return render_template('contact.html', form=contactForm)
     return render_template('contact.html', form=contactForm)
             
         
